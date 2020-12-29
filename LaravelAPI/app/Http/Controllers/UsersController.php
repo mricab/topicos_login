@@ -13,19 +13,20 @@ class UsersController extends Controller
     {
         if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
             $user = Auth::user();
+            $user['photo'] = str_replace('public', 'http://localhost:8000/storage', $user['photo']);
             $success['token'] = $user->createToken('appToken')->accessToken;
-           //After successfull authentication, notice how I return json parameters
+           //After successfull authentication
             return response()->json([
               'success' => true,
               'token' => $success,      //the auth token generated from passport
               'user' => $user           //an instance of the authenticated user created.
-          ]);
+            ]);
         } else {
-       //if authentication is unsuccessfull, notice how I return json parameters
+          //if authentication is unsuccessfull
           return response()->json([
             'success' => false,
             'message' => 'Invalid Email or Password',
-        ], 401);
+          ], 401);
         }
     }
 
@@ -36,8 +37,6 @@ class UsersController extends Controller
      */
     public function register(Request $request)
     {
-      //return $request->file('photo');
-
       //Validation of all fields
       $validator = Validator::make($request->all(), [
           'fname' => 'required',

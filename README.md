@@ -15,8 +15,14 @@ https://www.tutsmake.com/laravel-8-multiple-image-upload-via-api/
 5. A Complete Guide to Laravel Storage
 https://www.larashout.com/a-complete-guide-to-laravel-storage
 
+6. Image class
+https://api.flutter.dev/flutter/widgets/Image-class.html
+
+7. Flutter Image – Rounded Corners
+https://www.tutorialkart.com/flutter/flutter-image-rounded-corners/
+
 6. Using the Camera on Flutter
 https://www.raywenderlich.com/4333657-using-the-camera-on-flutter
 
 7. Flutter File Uploads
-https://fireship.io/lessons/flutter-file-uploads-cloud-storage/
+https://fireship.io/lessons/flutter-file-uploads-cloud-storage/ 

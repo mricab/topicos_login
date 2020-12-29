@@ -14,6 +14,8 @@ class _HomeState extends State<Home> {
   String lname;
   String address;
   String phone;
+  String photo;
+  final String _url = 'http://localhost:8000/';
   @override
   void initState() {
     _loadUserData();
@@ -25,9 +27,10 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Api App'),
-        backgroundColor: Colors.cyan[400],
+        backgroundColor: Colors.cyan[200],
       ),
-      body: Padding(
+      body: Container(
+        color: Colors.cyan[400],
         padding: const EdgeInsets.all(8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,18 +38,45 @@ class _HomeState extends State<Home> {
           children: <Widget>[
             Text(
               '$fname $lname',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Icon(Icons.pin_drop), Text('$address')],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Icon(Icons.phone), Text('$phone')],
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                  color: Colors.white),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(20.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(100),
+                child: Image.network(
+                  '$photo',
+                  width: 200,
+                  height: 200,
+                  fit: BoxFit.cover,
+                  loadingBuilder: (context, child, progress) {
+                    return progress == null ? child : LinearProgressIndicator();
+                  },
+                ),
+              ),
+            ),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Icon(Icons.pin_drop, color: Colors.grey[200]),
+              Text(
+                ' $address',
+                style: TextStyle(fontSize: 16, color: Colors.white),
+              ),
+            ]),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Icon(
+                Icons.phone,
+                color: Colors.grey[200],
+              ),
+              Text(
+                ' $phone',
+                style: TextStyle(fontSize: 16, color: Colors.white),
+              ),
+            ]),
+            Padding(
+              padding: const EdgeInsets.all(30.0),
               child: Center(
                 child: RaisedButton(
                   elevation: 0,
@@ -79,6 +109,8 @@ class _HomeState extends State<Home> {
         lname = user['lname'];
         address = user['address'];
         phone = user['phone'];
+        photo = user['photo'];
+        print('$photo');
       });
     }
   }
