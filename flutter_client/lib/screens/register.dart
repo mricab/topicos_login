@@ -4,6 +4,7 @@ import 'package:flutter_client/network_utils/api.dart';
 import 'package:flutter_client/screens/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_client/screens/login.dart';
+import 'package:flutter_client/widgets/avatarField.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -46,13 +47,27 @@ class _RegisterState extends State<Register> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(15.0),
+                                child: AvatarFormField(
+                                  context: context,
+                                  autovalidate: false,
+                                  validator: (photoPath) {
+                                    if (photoPath == null) {
+                                      return 'Ingrese una fotografía suya.';
+                                    }
+                                    photo = photoPath;
+                                    return null;
+                                  },
+                                ),
+                              ),
                               TextFormField(
                                 style: TextStyle(color: Color(0xFF000000)),
                                 cursorColor: Color(0xFF9b9b9b),
                                 keyboardType: TextInputType.text,
                                 decoration: InputDecoration(
                                   prefixIcon: Icon(
-                                    Icons.insert_emoticon,
+                                    Icons.face,
                                     color: Colors.grey,
                                   ),
                                   hintText: "Nombre(s)",
@@ -63,7 +78,7 @@ class _RegisterState extends State<Register> {
                                 ),
                                 validator: (firstname) {
                                   if (firstname.isEmpty) {
-                                    return 'Ingrese su nombre(s)';
+                                    return 'Ingrese su(s) nombre(s).';
                                   }
                                   fname = firstname;
                                   return null;
@@ -75,7 +90,7 @@ class _RegisterState extends State<Register> {
                                 keyboardType: TextInputType.text,
                                 decoration: InputDecoration(
                                   prefixIcon: Icon(
-                                    Icons.insert_emoticon,
+                                    Icons.family_restroom,
                                     color: Colors.grey,
                                   ),
                                   hintText: "Apellido",
@@ -135,29 +150,6 @@ class _RegisterState extends State<Register> {
                                     return 'Ingrese un número de teléfono.';
                                   }
                                   phone = phonenumber;
-                                  return null;
-                                },
-                              ),
-                              TextFormField(
-                                style: TextStyle(color: Color(0xFF000000)),
-                                cursorColor: Color(0xFF9b9b9b),
-                                keyboardType: TextInputType.text,
-                                decoration: InputDecoration(
-                                  prefixIcon: Icon(
-                                    Icons.face,
-                                    color: Colors.grey,
-                                  ),
-                                  hintText: "Fotografía",
-                                  hintStyle: TextStyle(
-                                      color: Color(0xFF9b9b9b),
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.normal),
-                                ),
-                                validator: (photoimg) {
-                                  if (photoimg.isEmpty) {
-                                    return 'Ingrese una fotografía.';
-                                  }
-                                  photo = photoimg;
                                   return null;
                                 },
                               ),

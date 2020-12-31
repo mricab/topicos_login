@@ -21,8 +21,14 @@ https://api.flutter.dev/flutter/widgets/Image-class.html
 7. Flutter Image – Rounded Corners
 https://www.tutorialkart.com/flutter/flutter-image-rounded-corners/
 
-6. Using the Camera on Flutter
-https://www.raywenderlich.com/4333657-using-the-camera-on-flutter
+8. Creating Custom Form Fields in Flutter
+https://medium.com/saugo360/creating-custom-form-fields-in-flutter-85a8f46c2f41
 
-7. Flutter File Uploads
-https://fireship.io/lessons/flutter-file-uploads-cloud-storage/ 
+9. Flutter: Import profile images form Camera and Gallery || Image Picker || 25
+https://www.youtube.com/watch?v=6af6qgziYfo
+
+10. NSPhotoLibraryUsageDescription key must be present in Info.plist to use camera roll
+https://stackoverflow.com/questions/39519773/nsphotolibraryusagedescription-key-must-be-present-in-info-plist-to-use-camera-r
+
+11. Image Upload Request using http package in flutter
+https://medium.com/@sahasuthpala/image-upload-request-using-http-package-in-flutter-77faa467e215

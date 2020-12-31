@@ -15,7 +15,6 @@ class _HomeState extends State<Home> {
   String address;
   String phone;
   String photo;
-  final String _url = 'http://localhost:8000/';
   @override
   void initState() {
     _loadUserData();
