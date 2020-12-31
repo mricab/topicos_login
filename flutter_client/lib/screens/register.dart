@@ -270,17 +270,32 @@ class _RegisterState extends State<Register> {
     setState(() {
       _isLoading = true;
     });
+
     var data = {
-      'fname': fname,
-      'lname': lname,
-      'address': address,
-      'phone': phone,
-      'photo': photo,
-      'email': email,
-      'password': password
+      'fname': fname.toString(),
+      'lname': lname.toString(),
+      'address': address.toString(),
+      'phone': phone.toString(),
+      //'photo': photo,
+      'email': email.toString(),
+      'password': password.toString()
     };
 
-    var res = await Network().authData(data, '/register');
+    // print(data);
+    // var res = await Network().authData(data, '/register');
+    // var body = json.decode(res.body);
+    // print(body);
+    // if (body['success']) {
+    //   SharedPreferences localStorage = await SharedPreferences.getInstance();
+    //   localStorage.setString('token', json.encode(body['token']));
+    //   localStorage.setString('user', json.encode(body['user']));
+    //   Navigator.push(
+    //     context,
+    //     new MaterialPageRoute(builder: (context) => Home()),
+    //   );
+    // }
+
+    var res = await Network().register(data, photo, '/register');
     var body = json.decode(res.body);
     print(body);
     if (body['success']) {

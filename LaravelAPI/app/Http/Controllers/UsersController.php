@@ -84,6 +84,7 @@ class UsersController extends Controller
       $input['password'] = bcrypt($input['password']);
       $input['photo'] = $path;
       $user = User::create($input);
+      $user['photo'] = str_replace('public', 'http://localhost:8000/storage', $user['photo']);
       $success['token'] = $user->createToken('appToken')->accessToken;
       return response()->json([
         'success' => true,
