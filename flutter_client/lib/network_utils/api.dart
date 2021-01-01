@@ -7,6 +7,9 @@ import 'package:http_parser/http_parser.dart';
 
 class Network {
   final String _url = 'http://127.0.0.1:8000/api/v1';
+  //See: https://stackoverflow.com/questions/49855754/unable-to-make-calls-to-localhost-using-flutter-random-port-being-assigned-to-h?answertab=votes#tab-top
+  //to correctly comunicate the Android Emulator with an API running on localhost.
+
   var token;
 
   _getToken() async {
@@ -51,6 +54,7 @@ class Network {
     );
 
     //Send request
+    //https://stackoverflow.com/questions/55520829/how-to-get-response-body-with-request-send-in-dart
     var streamedResponse = await request.send();
     return await http.Response.fromStream(streamedResponse);
   }

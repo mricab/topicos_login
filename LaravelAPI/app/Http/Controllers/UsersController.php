@@ -42,7 +42,7 @@ class UsersController extends Controller
           'fname' => 'required',
           'lname' => 'required',
           'address' => 'required',
-          'phone' => 'required|unique:users|regex:/(0)[0-9]{10}/',
+          'phone' => 'required|unique:users|regex:/[0-9]{8}/',
           'photo' => 'required',
           'email' => 'required|email|unique:users',
           'password' => 'required',
