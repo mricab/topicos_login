@@ -2,6 +2,9 @@ Proyecto para la materia Topicos Avanzados de Programación de la UAGRM (2-2020)
 
 Esta aplicación permite registrar usuarios y recuperar sus datos desde un dispositivo movil a través de una API que controla el acceso a la BD.
 
+Demo:
+![demo gif](https://github.com/mricab/topicos_login/blob/master/demo.gif)
+
 Recursos utilizados:
 
 1. Authenticating Flutter Application Using Laravel API and Passport
